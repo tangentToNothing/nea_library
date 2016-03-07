@@ -1,0 +1,1 @@
+dopubdate = Resource.update('published_at = ?', DateTime.new(2016,2,1)).where('published_at is NULL')

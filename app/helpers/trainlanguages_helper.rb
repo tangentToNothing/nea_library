@@ -1,0 +1,2 @@
+module TrainlanguagesHelper
+end

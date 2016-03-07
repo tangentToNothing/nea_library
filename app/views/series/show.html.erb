@@ -1,0 +1,134 @@
+
+<style>
+  .pagetitle {
+      color: orangered;
+      font-size: 16px;
+  }
+
+
+   .parent {
+       color: orange;
+       font-size: 10px;
+   }
+
+
+
+</style>
+
+
+<p id="notice"><%= notice %></p>
+
+
+<div class="col-sm-9">
+<div class="panel panel-default">
+
+  <div class="panel-body">
+Series:<br>
+
+    <span class="pagetitle"><%= @series.name %></span>
+
+    <% if !@series.pid.nil? and @series.pid > 0 %>
+        <% p = Series.find_by_id(@series.pid) %>
+
+        <% if !p.nil? %>
+            <br><span class="parent"> Belongs to: <%= p.name %></span>
+        <% end %>
+
+
+  <% end %>
+
+
+
+    <div class="row">
+
+
+      <%= link_to 'Edit', edit_series_path(:id=> @series.id, :language=> @series.language, :locale => I18n.locale), :class => "mb-sm btn btn-primary pull-right" %></li>
+
+
+    </div>
+
+
+
+<hr>
+    <p>
+
+  <%= @series.body %>
+</p>
+
+
+<p>
+  <strong>Language:</strong>
+  <%= @series.language_humanize %>
+</p>
+
+<p>
+  <strong>Tnid:</strong>
+  <%= @series.tnid %>
+</p>
+
+
+<h2>Series</h2>
+
+ <% @subseries.each do |sub| %>
+    <%= link_to sub do %><%= sub.name %><% end %><br>
+<% end %>
+
+
+<h2>Materials</h2>
+<% @materials.each do |mat| %>
+    <%= link_to mat do %><%= mat.title %><% end %><br>
+<% end %>
+
+<%= link_to 'Edit', edit_series_path(@series) %> |
+<%= link_to 'Back', series_index_path %>
+
+
+  </div>
+
+    </div>
+
+  <div class="col-sm-5">
+    <div class="panel panel-default">
+
+      <div class="panel-body">
+
+    <p>
+    <strong>Nid:</strong>
+    <%= @series.nid %>
+    </p>
+
+    <p>
+      <strong>Pnid:</strong>
+      <%= @series.pnid %>
+    </p>
+       <p>
+          <strong>Tnid:</strong>
+          <%= @series.tnid %>
+        </p>
+
+
+        <p>
+          <strong>id:</strong>
+          <%= @series.id %>
+        </p>
+
+        <p>
+          <strong>Pid:</strong>
+          <%= @series.pid %>
+        </p>
+        <p>
+          <strong>Tid:</strong>
+          <%= @series.tid %>
+        </p>
+
+
+
+
+
+
+
+<%#= link_to 'Arabic', series_index_path(@series.id), :class => "mb-sm btn btn-primary" %> |
+<%#= link_to 'Arabic', series_index_path(@series.id), :class => "mb-sm btn btn-primary" %> |
+</div>
+      </div>
+</div>

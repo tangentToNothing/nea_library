@@ -1,0 +1,87 @@
+<p id="notice"><%= notice %></p>
+
+<div class="col-sm-6">
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"> <%= @trainer.name_first %>  <%= @trainer.name_last %></h3>
+  </div>
+  <div class="panel-body">
+
+
+
+
+
+
+<p>
+  <strong>Gender:</strong>
+  <%= @trainer.gender_humanize %>
+</p>
+
+<p>
+  <strong>Based in:</strong>
+  <%= @trainer.country %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @trainer.city %>
+</p>
+
+<p>
+  <strong>Mepi training:</strong>
+  <%= @trainer.mepi_training %>
+</p>
+
+<p>
+  <strong>Mepi trained:</strong>
+  <%= @trainer.mepi_trained %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @trainer.phone %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @trainer.email %>
+</p>
+
+<p>
+  <strong>Website:</strong>
+  <%= @trainer.website %>
+</p>
+
+<p>
+  <strong>Experience:</strong>
+  <%= @trainer.experience %>
+</p>
+
+<p>
+  <strong>Specialty:</strong>
+  <%= @trainer.specialty %>
+</p>
+
+
+    <strong>Secondary Technical Areas:</strong>
+    <% @myotherspecialties.each do |area| %>
+        <% thisspec = Technicalarea.find(area.technicalarea_id) %>
+        <%= thisspec.name %>
+        &nbsp;|&nbsp;
+    <% end %><br>
+
+
+    <p>
+  <strong>Additional:</strong>
+  <%= @trainer.additional %>
+</p>
+
+<%= link_to 'Edit', edit_trainer_path(@trainer) %> |
+<%= link_to 'Back', trainers_path %>
+<%= link_to 'Destroy', @trainer, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+
+  </div>
+</div>
+</div>
+

@@ -1,0 +1,92 @@
+
+<style>
+    .pagetitle {
+        color: orangered;
+        font-size: 16px;
+    }
+    </style>
+
+<div class="col-sm-7">
+  <div class="panel panel-default">
+
+
+
+
+
+    <div class="panel-body">
+
+    <%= debug params %>
+
+
+
+
+
+
+<%= form_for(@series) do |f| %>
+          <%= hidden_field_tag :locale, I18n.locale %>
+  <% if @series.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@series.errors.count, "error") %> prohibited this series from being saved:</h2>
+
+      <ul>
+      <% @series.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+          <% if !params[:nid].nil? %>
+              <% if params[:language] == '2' %>
+                  <input type="hidden" name="language" value="2">
+                  <input type="hidden" name="tnid" value="<%= params[:pnid] %>">
+                         Arabic Content for Series:<br>
+              <% end %>
+              <% if params[:language] == '3' %>
+                  <input type="hidden" name="language" value="2">
+                  <input type="hidden" name="tnid" value="<%= params[:pnid] %>">
+                  French Content for Series:<br>
+              <% end %>
+
+              <span class="pagetitle"><%= @engver.name %></span>
+          <% end %>
+          <hr>
+
+
+
+
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :body %><br>
+    <%= f.text_area :body %>
+  </div>
+  <div class="field">
+    <%= f.label :nid %><br>
+    <%= f.number_field :nid %>
+  </div>
+  <div class="field">
+    <%= f.label :pnid %><br>
+    <%= f.number_field :pnid %>
+  </div>
+
+          <div class="field">
+            <%= f.label 'Language' %><br>
+            <%= f.select(:language, Language.to_a, :include_blank => true, :class => "form-control") %>
+          </div>
+
+  <div class="field">
+    <%= f.label :tnid %><br>
+    <%= f.number_field :tnid %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+        </div>
+      </div>

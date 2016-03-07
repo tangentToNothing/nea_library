@@ -1,0 +1,54 @@
+
+<style>
+    .pagetitle {
+        color: darkblue;
+        font-size: 16px;
+    }
+
+
+    .parent {
+        color: orange;
+        font-size: 10px;
+    }
+
+
+</style>
+
+
+    <p id="notice"><%= notice %></p>
+
+
+<div class="col-sm-7">
+  <div class="panel panel-default">
+
+    <div class="panel-body">
+      Project:<br>
+
+      <span class="pagetitle"><%= @project.name %></span>
+
+
+
+
+
+<p>
+  <strong>Description:</strong>
+  <%= @project.description %>
+</p>
+
+
+<h3>Resources </h3>
+      <% @resources.each do |resource| %>
+
+         <%= link_to resource.title, resource %><br>
+
+
+          <% end %>
+
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>
+<%= link_to 'Destroy', @project, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+      </div>
+    </div>
+

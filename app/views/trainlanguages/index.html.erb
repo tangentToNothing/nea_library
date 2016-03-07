@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Trainlanguages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @trainlanguages.each do |trainlanguage| %>
+      <tr>
+        <td><%= trainlanguage.name %></td>
+        <td><%= link_to 'Show', trainlanguage %></td>
+        <td><%= link_to 'Edit', edit_trainlanguage_path(trainlanguage) %></td>
+        <td><%= link_to 'Destroy', trainlanguage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Trainlanguage', new_trainlanguage_path %>

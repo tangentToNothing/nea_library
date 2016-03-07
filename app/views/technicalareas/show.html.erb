@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+
+
+<div class="col-sm-7">
+  <div class="panel panel-default">
+
+    <div class="panel-body">
+
+      Technical Area:
+      <h2 class="pagetitle"><%= @technicalarea.name %></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>
+  <strong>Name:</strong>
+  <%= @technicalarea.name %>
+</p>
+
+
+<% @techs.each do |result| %>
+    <% resource = Resource.find(result.resource_id) %>
+    <small><%= result.resource_id %></small><br>
+    <strong><%= link_to resource do %><%= resource.title %><% end %></strong><br>
+    <%= resource.body %>
+    <%#= render result %><br><br>
+<% end %>
+
+
+</div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%= link_to 'Edit', edit_technicalarea_path(@technicalarea, :locale => I18n.locale) %> |
+<%= link_to 'Back', technicalareas_path %>

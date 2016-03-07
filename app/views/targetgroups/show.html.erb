@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+
+
+
+<div class="col-sm-7">
+  <div class="panel panel-default">
+
+    <div class="panel-body">
+        Target Group:
+      <h2 class="pagetitle"><%= @targetgroup.name %></h2>
+
+
+
+
+<% @groups.each do |result| %>
+    <% resource = Resource.find(result.resource_id) %>
+    <small><%= result.resource_id %></small><br>
+    <strong><%= link_to resource do %><%= resource.title %><% end %></strong><br>
+    <%= resource.body %>
+    <%#= render result %><br><br>
+<% end %>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<%= link_to 'Edit', edit_targetgroup_path(@targetgroup) %> |
+<%= link_to 'Back', targetgroups_path %>
+
+

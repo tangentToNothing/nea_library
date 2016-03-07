@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Personname:</strong>
+  <%= @submission.personname %>
+</p>
+
+<p>
+  <strong>Position:</strong>
+  <%= @submission.position %>
+</p>
+
+<p>
+  <strong>Organization:</strong>
+  <%= @submission.organization_id %>
+</p>
+
+<p>
+  <strong>Neworg:</strong>
+  <%= @submission.neworg %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @submission.email %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @submission.phone %>
+</p>
+
+<p>
+  <strong>Project:</strong>
+  <%= @submission.project_id %>
+</p>
+
+<p>
+  <strong>Newproj:</strong>
+  <%= @submission.newproj %>
+</p>
+
+<%= link_to 'Edit', edit_submission_path(@submission) %> |
+<%= link_to 'Back', submissions_path %>

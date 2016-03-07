@@ -1,0 +1,98 @@
+
+<div class="col-sm-6">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title"> <%= @trainer.name_first %>  <%= @trainer.name_last %></h3>
+    </div>
+    <div class="panel-body">
+
+
+
+    <%= form_for(@trainer) do |f| %>
+  <% if @trainer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@trainer.errors.count, "error") %> prohibited this trainer from being saved:</h2>
+
+      <ul>
+      <% @trainer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+          <div class="field">
+            <%= f.label 'Salut' %><br>
+            <%= f.select(:title, Title.to_a, :class => "form-control") %>
+          </div>
+
+
+  <div class="field">
+    <%= f.label :name_first %><br>
+    <%= f.text_field :name_first %>
+  </div>
+  <div class="field">
+    <%= f.label :name_last %><br>
+    <%= f.text_field :name_last %>
+  </div>
+          <div class="field">
+            <%= f.label 'Gender' %><br>
+            <%= f.select(:gender, Gender.to_a, :class => "form-control") %>
+          </div>
+
+  <div class="field">
+    <%= f.label :based_in %><br>
+    <%= f.collection_select(:based_in, Mepicountry.all, :id, :name, include_blank: true, :class => "form-control") %>
+
+  </div>
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :mepi_training %><br>
+    <%= f.check_box :mepi_training %>
+  </div>
+  <div class="field">
+    <%= f.label :mepi_trained %><br>
+    <%= f.check_box :mepi_trained %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br>
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :website %><br>
+    <%= f.text_field :website %>
+  </div>
+  <div class="field">
+    <%= f.label :experience %><br>
+    <%= f.text_area :experience, :class => "form-control", :label => false, input_html: {rows: 10, cols: 50} %>
+
+  </div>
+  <div class="field">
+    <%= f.label :specialty_id %><br>
+
+    <%= f.collection_select(:specialty_id, Technicalarea.all, :id, :name, include_blank: true, :class => "form-control") %>
+  </div>
+  <div class="field">
+    <%= f.label :additional %><br>
+    <%= f.text_area :additional, :class => "form-control", :label => false, input_html: {rows: 10, cols: 50} %>
+
+
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+    </div>
+  </div>
+</div>
+

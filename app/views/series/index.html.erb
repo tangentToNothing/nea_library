@@ -1,0 +1,86 @@
+<script>
+    $(document).ready(function() {
+        $('#series').DataTable();
+    } );
+</script>
+
+<style>
+    .parent {
+        color: orange;
+        font-size: 10px;
+    }
+
+
+</style>
+
+
+
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Series</h1>
+<table id="series" class="hover" cellspacing="0" width="100%">
+
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>Name</th>
+
+      <th># Sub</th>
+      <th># Res</th>
+
+
+
+      <th>pid</th>
+
+      <th>tid</th>
+      <th>Pnid</th>
+      <th>Language</th>
+      <th>Tnid</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+    <tbody>
+        <% @series.each do |s| %>
+            <% subs=Series.where('pid = ?', s.id) %>
+            <% resources=Resource.where('series_id = ?', s.id) %>
+
+          <tr>
+            <td><%= s.id %></td>
+            <td><%= link_to s  do %><%= s.name %><%= s.pid %><% end %>
+
+            <% if !s.pid.nil? and s.pid > 0 %>
+            <% p = Series.find_by_id(s.pid) %>
+
+            <% if !p.nil? %>
+
+            <small class="color: orange">Series: <%= p.series.name %></small><br>
+
+            <% end %>
+
+
+            <% end %>
+
+
+
+            </td>
+            <td><%= subs.count %></td>
+           <td><%= resources.count %></td>
+
+            <td><%= s.pid %></td>
+            <td><%= s.tid %></td>
+            <td><%= s.pnid %></td>
+            <td><%= s.language %></td>
+            <td><%= s.tnid %></td>
+            <td><%= link_to 'Show', s %></td>
+            <td><%= link_to 'Edit', edit_series_path(s) %></td>
+            <td><%= link_to 'Destroy', s, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+
+        <% end %>
+    </tbody>
+    </table>
+
+<br>
+
+<%= link_to 'New Series', new_series_path %>
