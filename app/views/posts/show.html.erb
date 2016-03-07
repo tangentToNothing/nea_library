@@ -79,10 +79,45 @@
         <div class="panel panel-default">
           <div class="panel-heading">Images</div>
           <div class="panel-body">
-            <% @postimages.each do |img| %>
-                <%= link_to img.image_file_name , img.image.url(:original, false) %>
-                <%= img.image_updated_at %><br>
+
+
+
+
+
+            <%= form_tag updatepostlogos_path, method: :put do %>
+                <%= hidden_field_tag :post_id, @post.id %>
+                <table border="1">
+                  <% @postimages.each do |doc| %>
+                      <%= fields_for "site_images[]", doc do |f| %>
+
+                          <tr>
+                            <td>
+
+
+                              <%# if doc.is_logo == true %>
+
+                              <%= f.check_box :is_logo %>
+                              <%#= f.check_box_tag "site_image_ids[]", doc.id, {:checked => "checked"}  %>
+                              <%# else %>
+                              <%#= f.check_box_tag "site_image_ids[]", doc.id %>
+                              <%# end %>
+
+                            </td>
+                            <td><%= image_tag doc.image.url, :width => "50", :class => "pull-right" %></td>
+                            <td><%= link_to doc.image_file_name , doc.image.url(:original, false) %></td>
+                            <td><%= doc.image_updated_at %></td>
+                          </tr>
+                      <% end %>
+                  <% end %>
+                </table>
+                <%= submit_tag "Update logos" %>
             <% end %>
+
+
+
+
+
+
             <%= simple_form_for @new_site_image do |form| %>
                 <%= form.hidden_field :imageable_id, :value => @post.id %>
                 <%= form.hidden_field :imageable_type, :value => 'post' %>

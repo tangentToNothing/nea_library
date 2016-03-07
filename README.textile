@@ -1,4 +1,4 @@
-h1. !http://railsapps.github.io/images/rails-36x36.jpg(Rails Devise)! Rails and Devise
+Maktabat NEA Library
 
 Rails 4.2 example application that provides authentication and user management.
 

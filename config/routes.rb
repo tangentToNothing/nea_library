@@ -34,6 +34,7 @@ Rails.application.routes.draw do
 
   get 'resources/newtranslation', to: 'resources#newtranslation', as: 'newtranslation'
   put 'updatelogos', to: 'resources#updatelogos', as: 'updatelogos'
+  put 'updatepostlogos', to: 'posts#updatepostlogos', as: 'updatepostlogos'
   get 'searchform', to: 'resources#search_resources', as: 'searchform'
   #get 'searches', to: 'searches#index', as: 'searches'
   get 'checkorgs', to: 'resources#checkorgs', as: 'checkorgs'

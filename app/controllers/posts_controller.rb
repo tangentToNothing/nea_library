@@ -70,6 +70,22 @@ class PostsController < ApplicationController
     end
   end
 
+
+
+
+
+
+
+  def updatepostlogos
+    @site_images = SiteImage.update(params[:site_images].keys, params[:site_images].values)
+    @site_images.reject! { |p| p.errors.empty? }
+
+    redirect_to post_url(params[:post_id])
+
+
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
