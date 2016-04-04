@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :languages
   resources :submissions
   resources :countries
   resources :tags
@@ -30,10 +31,13 @@ Rails.application.routes.draw do
   resources :posts
   resources :comments, :path_prefix => '/:commentable_type/:commentable_id'
   get 'visitors/about', to: 'visitors#about', as: 'about'
+  get 'visitors/faqs', to: 'visitors#faqs', as: 'faqs'
+  get 'visitors/terms', to: 'visitors#terms', as: 'terms'
   #get 'visitors/results', to: 'visitors#results', as: 'results'
 
   get 'resources/newtranslation', to: 'resources#newtranslation', as: 'newtranslation'
   put 'updatelogos', to: 'resources#updatelogos', as: 'updatelogos'
+  put 'updatelang', to: 'resources#updatelang', as: 'updatelang'
   put 'updatepostlogos', to: 'posts#updatepostlogos', as: 'updatepostlogos'
   get 'searchform', to: 'resources#search_resources', as: 'searchform'
   #get 'searches', to: 'searches#index', as: 'searches'
@@ -43,5 +47,5 @@ Rails.application.routes.draw do
 
 
   resources :users
-  mount Ckeditor::Engine => '/ckeditor'
+
 end

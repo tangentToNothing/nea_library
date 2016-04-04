@@ -7,6 +7,14 @@ Rails.application.config.assets.precompile += %w( IntLawYemen.jpg )
 Rails.application.config.assets.precompile += %w( MAL_July_2010.jpg )
 Rails.application.config.assets.precompile += %w( WIT_graduates.jpg )
 Rails.application.config.assets.precompile += %w( WIT_lebanon.jpg )
+Rails.application.config.assets.precompile += %w( option1.png )
+Rails.application.config.assets.precompile += %w( option2.png )
+Rails.application.config.assets.precompile += %w( option3.png )
+Rails.application.config.assets.precompile += %w( stonebanner_gray.jpg )
+Rails.application.config.assets.precompile += %w( arch_oilfy.jpg )
+Rails.application.config.assets.precompile += %w( bg_homeicons_sprite.png )
+
+
 
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path
