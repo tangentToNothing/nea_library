@@ -1,6 +1,7 @@
 class CreateTags < ActiveRecord::Migration
   def up
     create_table :tags do |t|
+      t.integer :tid
       t.timestamps null: false
     end
     Tag.create_translation_table! :name => :string

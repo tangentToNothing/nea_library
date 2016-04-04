@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160301222027) do
+ActiveRecord::Schema.define(version: 20160403202913) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -256,6 +256,13 @@ ActiveRecord::Schema.define(version: 20160301222027) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "searches_tags", force: :cascade do |t|
+    t.integer  "search_id"
+    t.integer  "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "searches_targetgroups", force: :cascade do |t|
     t.integer  "search_id"
     t.integer  "targetgroup_id"
@@ -317,6 +324,7 @@ ActiveRecord::Schema.define(version: 20160301222027) do
     t.string   "document_content_type"
     t.integer  "document_file_size"
     t.datetime "document_updated_at"
+    t.integer  "language_id"
   end
 
   create_table "site_images", force: :cascade do |t|
@@ -351,6 +359,8 @@ ActiveRecord::Schema.define(version: 20160301222027) do
     t.string   "newproj"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.text     "description"
+    t.string   "title"
   end
 
   create_table "tag_translations", force: :cascade do |t|
@@ -365,6 +375,7 @@ ActiveRecord::Schema.define(version: 20160301222027) do
   add_index "tag_translations", ["tag_id"], name: "index_tag_translations_on_tag_id", using: :btree
 
   create_table "tags", force: :cascade do |t|
+    t.integer  "tid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -372,6 +383,8 @@ ActiveRecord::Schema.define(version: 20160301222027) do
   create_table "tags_resources", force: :cascade do |t|
     t.integer  "tag_id"
     t.integer  "resource_id"
+    t.integer  "tid"
+    t.integer  "nid"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

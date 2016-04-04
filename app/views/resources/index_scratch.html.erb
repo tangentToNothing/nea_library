@@ -2,27 +2,30 @@
 
 
 <style>
-  .facetbox {
-      font-size: 12px;
-      background-color: #fdfdfd;
-      padding: 5px;
+    .facetbox {
+        font-size: 12px;
+        background-color: #fdfdfd;
+        padding: 5px;
 
 
-  }
+    }
 
 
 </style>
 
 
 <%= debug @search %>
-<%= debug params %>
 
 
 <div class="container content">
   <div class="row">
     <div class="col-md-9">
       <!-- Our Services -->
-      <div class="headline"><h2>Search Results</h2></div>
+      <div class="headline"><h2>Search Results</h2>
+
+
+
+      </div>
 
 
 
@@ -30,7 +33,7 @@
 
 
 
-<hr>
+      <hr>
 
 
 
@@ -105,7 +108,6 @@
       <div id="facets" class="facetbox pull-right">
 
 
-
         <h3>Search Results Drilldown</h3>
         Search term <span style="color: orangered;"><%= @searchterm %></span><br>
         <strong>Keyword</strong>
@@ -117,18 +119,17 @@
             </p>
         <% end %>
 
+        <strong>Publish Year</strong>
 
+        <strong>Technical Areas</strong>
+        <ul>
+          <% for row in @search.facet(:technicalarea_ids).rows %>
+              <li>
+                <%= link_to(row.instance.name, url_for(:technicalarea_id => row.value)) %> (<%= row.count %>)
 
-            <strong>Technical Areas</strong>
-              <ul>
-                <% for row in @search.facet(:technicalarea_ids).rows %>
-                    <li>
-                      <%= link_to(row.instance.name, url_for(:technicalarea_id => row.value)) %> (<%= row.count %>)
-
-                    </li>
-                <% end %>
-              </ul>
-
+              </li>
+          <% end %>
+        </ul>
         <strong>Target Groups</strong>
         <ul>
           <% for row in @search.facet(:targetgroup_ids).rows %>
@@ -149,10 +150,6 @@
           <% end %>
         </ul>
 
-
-
-
-
         <strong>Organizations</strong>
         <ul>
           <% for row in @search.facet(:organization_id).rows %>
@@ -162,7 +159,6 @@
               </li>
           <% end %>
         </ul>
-
         <strong>Series</strong>
         <ul>
           <% for row in @search.facet(:series_id).rows %>
@@ -182,9 +178,8 @@
           <% end %>
         </ul>
 
-
-              </div>
-              </div>
+      </div>
+    </div>
 
 
   </div>

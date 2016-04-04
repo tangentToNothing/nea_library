@@ -25,10 +25,14 @@
     <main role="main" class="<%= I18n.locale.to_s %>">
        <%= render 'layouts/messages' %>
 
-
+<div class="container" style="width: 95%">
        <%= yield %>
+</div>
     </main>
+<footer>
 
+  <%= render 'layouts/footer' %>
+</footer>
 
 
   </body>

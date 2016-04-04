@@ -17,6 +17,7 @@
 @import "dataTables.bootstrap";
 @import "jquery.dataTables";
 @import "dataTables.jqueryui";
+@import 'social_icons_default_60';
 
 .ar {  direction: rtl;   }
 .fr { direction: ltr; }
@@ -33,3 +34,7 @@
 .navbar-default .navbar-nav > li > a {
   color: #fff;
 }
+ .stonebanner {
+   background-image: image-url("stonebanner.jpg");
+   height: 65px;
+ }

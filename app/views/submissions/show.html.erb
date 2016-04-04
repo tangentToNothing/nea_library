@@ -1,4 +1,29 @@
-<p id="notice"><%= notice %></p>
+
+
+  <div class="col-sm-6  <%= I18n.locale.to_s %>">
+
+    <div class="panel panel-default">
+
+      <div class="panel-body">
+
+
+<h3>Resource Submission</h3>
+
+
+      <p>
+  <strong>Title:</strong>
+  <%= @submission.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @submission.description %>
+</p>
+
+
+
+
+
 
 <p>
   <strong>Personname:</strong>
@@ -40,5 +65,28 @@
   <%= @submission.newproj %>
 </p>
 
-<%= link_to 'Edit', edit_submission_path(@submission) %> |
+<%= link_to 'Edit', edit_submission_path(@submission), :class => "mb-sm btn btn-primary" %> |
 <%= link_to 'Back', submissions_path %>
+
+
+
+<div class="col-sm-12">
+  <div class="panel panel-default">
+    <div class="panel-heading">Attachments</div>
+    <div class="panel-body">
+      <% @submitdocuments.each do |doc| %>
+          <%= link_to doc.document_file_name , doc.document.url(:original, false) %>
+          <%= doc.document_updated_at %><br>
+      <% end %>
+      <%= simple_form_for @new_site_document do |form| %>
+          <%= form.hidden_field :documentable_id, :value => @submission.id %>
+          <%= form.hidden_field :documentable_type, :value => 'submission' %>
+          <%= form.input :document, as: :file %>
+          <%= form.button :submit, :value => 'Upload Document', :class => "mb-sm btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+</div>
+      </div>
+    </div>

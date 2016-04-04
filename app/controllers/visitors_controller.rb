@@ -22,4 +22,20 @@
   end
 
 
-end
+  def terms
+
+    @terms = Page.find_by_id(12)
+
+    render 'visitors/terms'
+  end
+
+
+
+  def faqs
+
+    @faqs = Page.where('pagetype_id =?', 1).order(:id)
+    render 'visitors/faq'
+  end
+
+
+ end

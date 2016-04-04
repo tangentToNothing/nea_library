@@ -6,8 +6,8 @@ class Series < ActiveRecord::Base
    has_many :searches, :through => :searches_series
 
 
-  extend EnumerateIt
-  has_enumeration_for :language
+ # extend EnumerateIt
+  #has_enumeration_for :language
 
 
 end

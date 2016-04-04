@@ -34,6 +34,8 @@ class SiteDocumentsController < ApplicationController
       d = Resource.find(did)
     elsif dtype == 'series'
       d = Series.find(did)
+    elsif dtype == 'submission'
+      d = Submission.find(did)
     end
 
 

@@ -10,6 +10,11 @@ class SubmissionsController < ApplicationController
   # GET /submissions/1
   # GET /submissions/1.json
   def show
+
+
+    @submitdocuments = SiteDocument.where('documentable_type = ? and documentable_id = ?', 'submission', @submission.id)
+    @new_site_document = SiteDocument.new
+
   end
 
   # GET /submissions/new
@@ -69,6 +74,6 @@ class SubmissionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def submission_params
-      params.require(:submission).permit(:personname, :position, :organization_id, :neworg, :email, :phone, :project_id, :newproj)
+      params.require(:submission).permit(:personname, :position, :organization_id, :neworg, :email, :phone, :project_id, :newproj, :title, :description)
     end
 end

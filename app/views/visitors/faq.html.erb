@@ -1,0 +1,24 @@
+<div class="col-sm-12  <%= I18n.locale.to_s %>">
+  <div class="panel panel-default">
+
+
+
+
+    <div class="panel-body">
+
+      <h2 class="pagetitle">Frequently Asked Questions </h2>
+
+<% @faqs.each do |faq| %>
+         <h3><%= faq.title %></h3>
+          <%= raw faq.body %>
+
+<% end %>
+
+
+
+    </div></div></div>
+
+
+
+
+

@@ -1,8 +1,4 @@
-class Language < EnumerateIt::Base
-  associate_values(
-      :english  => 1,
-      :arabic  => 2,
-      :french  => 3,
-
-  )
+class Language < ActiveRecord::Base
+  translates :name
+  has_many :site_documents
 end

@@ -100,6 +100,9 @@ end
 
 @countries = [
 
+
+
+
     {"en" => "Qatar", "ar" => "قطر", "fr" => "Qatar "},
     {"en" => "Saudi Arabia", "ar" => "المملكة العربية السعودية", "fr" => "Arabie Saoudite"},
     {"en" => "Syria", "ar" => "سوريا", "fr" => "Syrie"},
@@ -109,7 +112,7 @@ end
     {"en" => "Yemen", "ar" => "اليمن", "fr" => "Yémen"},
     {"en" => "Germany", "ar" => "ألمانيا", "fr" => "Allemagne"},
     {"en" => "Turkey", "ar" => "تركيا", "fr" => "Turquie"},
-    {"en" => "North Africa Region", "ar" => "اليمن", "fr" => "Turquie"},
+
     {"en" => "Mediterranean Region", "ar" => "منطقة البحر الأبيض المتوسط", "fr" => "Région de la Méditerranée"},
     {"en" => "Arabian Peninsula", "ar" => "شبه الجزيرة العربية", "fr" => "Péninsule Arabique"},
     {"en" => "All MEPI Region", "ar" => "الكل المنطقة MEPI", "fr" => "Tous Région MEPI"}
@@ -126,84 +129,98 @@ end
 
 
 @tags = [
-    {"en" => "Accountability/Transparency", "ar" => "المساءلة/الشفافية  ", "fr" => "Responsabilité/Transparence"},
-    {"en" => "Activism", "ar" => "التنشيط", "fr" => "Activisme "},
-    {"en" => "Advocacy", "ar" => "كسب التأييد/الدعوة", "fr" => "Coalition d’intérêts"},
-    {"en" => "Agriculture", "ar" => "الزراعة ", "fr" => "Coalition d’intérêts"},
-    {"en" => "Anti-Corruption", "ar" => "مكافحة الفساد", "fr" => ""},
-    {"en" => "Business Planning", "ar" => "تخطيط الأعمال", "fr" => "Planification d’entreprise"},
-    {"en" => "CSO/NGO Laws", "ar" => "قوانين المنظمات غيرالحكومية ومنظمات المجتمع المدني ", "fr" => "Lois gouvernant les OSC/ONG"},
-    {"en" => "CSO/NGO Management", "ar" => "دارة المنظمات غيرالحكومية ومنظمات المجتمع المدني ", "fr" => "Gestion des OSC/ONG"},
-    {"en" => "Campaigns", "ar" => "لحملات الانتخابية ", "fr" => "Campagnes "},
-    {"en" => "Censorship", "ar" => "الرقابة", "fr" => ""},
-    {"en" => "Civic Engagement", "ar" => "المشاركة المدنية", "fr" => "Engagement civique"},
-    {"en" => "Communication", "ar" => "التواصل", "fr" => ""},
-    {"en" => "Conflict Resolution", "ar" => "حل النزاعات", "fr" => "Résolution de conflits"},
-    {"en" => "Constitution", "ar" => "الدستور", "fr" => ""},
-    {"en" => "Corporate Governance", "ar" => "حوكمة الشركات", "fr" => "Gouvernance d*777*entreprise "},
-    {"en" => "Crime Prevention", "ar" => "منع الجريمة", "fr" => "Lutte contre le crime "},
-    {"en" => "Democracy", "ar" => "الديمقراطية", "fr" => "Démocratie"},
-    {"en" => "Development Theory", "ar" => "نظرية التنمية", "fr" => "Théorie de développement"},
-    {"en" => "Election Management", "ar" => "إدارة الانتخابات", "fr" => "Gestion électorale "},
-    {"en" => "Environment", "ar" => "البيئة", "fr" => ""},
-    {"en" => "Equality", "ar" => "المساواة", "fr" => "Egalité"},
-    {"en" => "Ethics", "ar" => "أخلاقيات المهنة", "fr" => "Etique"},
-    {"en" => "Finance/Banking", "ar" => "الشؤون المالية /المصرفية", "fr" => "Finance/ Secteur bancaire"},
-    {"en" => "Funding", "ar" => "التمويل", "fr" => "Financement"},
-    {"en" => "Governance", "ar" => "الحوكمة", "fr" => "Gouvernance"},
-    {"en" => "Health Awareness", "ar" => "التوعية الصحية", "fr" => "Sensibilisation à la santé"},
-    {"en" => "Human Rights", "ar" => "حقوق الانسان", "fr" => ""},
-    {"en" => "Information Technology (IT)", "ar" => "تقنية المعلومات", "fr" => "Informatique"},
-    {"en" => "Investment", "ar" => "الاستثمار", "fr" => " Investissement"},
-    {"en" => "Journalism", "ar" => "صحافة", "fr" => "Journalisme "},
-    {"en" => "Judicial", "ar" => "قضائي", "fr" => " Judiciaire"},
-    {"en" => "Laws/Legislation", "ar" => "القوانين/التشريعات", "fr" => "Lois/Législation"},
-    {"en" => "Leadership", "ar" => "القيادة", "fr" => "Leadership "},
-    {"en" => "MEPI Alumni Association Projects", "ar" => "مشاريع خريجي ميبي", "fr" => ""},
-    {"en" => "Marketing/Branding", "ar" => "التسويق/ العلامات التجارية", "fr" => "Marketing/ Création de marque"},
-    {"en" => "Media Outreach", "ar" => "التواصل الإعلامي", "fr" => "Sensibilisation des médias"},
-    {"en" => "Minority Rights", "ar" => "حقوق الأقليات", "fr" => "Droits des minorités"},
-    {"en" => "Mobile Phones", "ar" => "الهواتف النقالة", "fr" => ""},
-    {"en" => "Monitoring and Evaluation", "ar" => "المراقبة والتقييم", "fr" => "Suivi et évaluation"},
-    {"en" => "Networking", "ar" => "الشبكات", "fr" => ""},
-    {"en" => "Organizational Development", "ar" => "التطوير التنظيمي", "fr" => ""},
-    {"en" => "Political Partcipation", "ar" => "المشاركة السياسية", "fr" => "Participation politique "},
-    {"en" => "Privacy", "ar" => "الخصوصية", "fr" => ""},
-    {"en" => "Professional Development", "ar" => "التنمية المهنية", "fr" => "Développement professionnel"},
-    {"en" => "Project Management", "ar" => "إدارة المشاريع", "fr" => "Gestion de projet"},
-    {"en" => "Risk Management", "ar" => "إدارة المخاطر", "fr" => "Management des risques "},
-    {"en" => "School Programs", "ar" => "البرامج المدرسية", "fr" => "Programmes scolaires"},
-    {"en" => "Security", "ar" => "الأمن", "fr" => "Sécurité"},
-    {"en" => "Small and Medium Enterprises (SMEs)", "ar" => "الشركات الصغيرة والمتوسطة", "fr" => "Petites et moyennes entreprises (PME)"},
-    {"en" => "Social Entrepreneurship", "ar" => "الريادة الاجتماعية", "fr" => "Entrepreneuriat Social"},
-    {"en" => "Social Media", "ar" => "مواقع التواصل الاجتماعي", "fr" => "Médias sociaux"},
-    {"en" => "Strategic Planning", "ar" => "التخطيط الاستراتيجي", "fr" => "Planification stratégique"},
-    {"en" => "Strategic Planning Skills", "ar" => "مهارات التخطيط الاستراتيجي", "fr" => "Compétences en planification stratégique"},
-    {"en" => "Teaching Methodologies", "ar" => "طرائق التدريس", "fr" => "Méthodologie d’enseignement"},
-    {"en" => "Trade", "ar" => "التجارة", "fr" => "Commerce "},
-    {"en" => "Training of Trainers (TOT)", "ar" => "تدريب المدربين ", "fr" => "Formation de Formateurs (FDF) "},
-    {"en" => "Voter Participation", "ar" => "مشاركة الناخبين ", "fr" => "Participation des électeurs"},
-    {"en" => "Women*777*s Rights", "ar" => "حقوق المرأة", "fr" => "Droits des femmes"}
+    {"tid" => 405, "en" => "Accountability/Transparency", "ar" => "المساءلة/الشفافية  ", "fr" => "Responsabilité/Transparence"},
+    {"tid" => 171, "en" => "Activism", "ar" => "التنشيط", "fr" => "Activisme "},
+    {"tid" => 420, "en" => "Advocacy", "ar" => "كسب التأييد/الدعوة", "fr" => "Coalition d’intérêts"},
+    {"tid" => 58, "en" => "Agriculture", "ar" => "الزراعة ", "fr" => "Coalition d’intérêts"},
+    {"tid" => 431, "en" => "Anti-Corruption", "ar" => "مكافحة الفساد", "fr" => "Anti-Corruption"},
+    {"tid" => 400, "en" => "Business Planning", "ar" => "تخطيط الأعمال", "fr" => "Planification d’entreprise"},
+    {"tid" => 377, "en" => "CSO/NGO Laws", "ar" => "قوانين المنظمات غيرالحكومية ومنظمات المجتمع المدني ", "fr" => "Lois gouvernant les OSC/ONG"},
+    {"tid" => 366, "en" => "CSO/NGO Management", "ar" => "دارة المنظمات غيرالحكومية ومنظمات المجتمع المدني ", "fr" => "Gestion des OSC/ONG"},
+    {"tid" => 341, "en" => "Campaigns", "ar" => "لحملات الانتخابية ", "fr" => "Campagnes "},
+    {"tid" => 472, "en" => "Censorship", "ar" => "الرقابة", "fr" => "La censure"},
+    {"tid" => 467, "en" => "Coalitions", "ar" => "التحالفات", "fr" => "Coalitions"},
+    {"tid" => 181, "en" => "Civic Engagement", "ar" => "المشاركة المدنية", "fr" => "Engagement civique"},
+    {"tid" => 458, "en" => "Communication", "ar" => "التواصل", "fr" => "La Communication"},
+    {"tid" => 374, "en" => "Conflict Resolution", "ar" => "حل النزاعات", "fr" => "Résolution de conflits"},
+    {"tid" => 462, "en" => "Constitution", "ar" => "الدستور", "fr" => "Constitution"},
+    {"tid" => 18, "en" => "Corporate Governance", "ar" => "حوكمة الشركات", "fr" => "Gouvernance d*777*entreprise "},
+    {"tid" => 360, "en" => "Crime Prevention", "ar" => "منع الجريمة", "fr" => "Lutte contre le crime "},
+    {"tid" => 177, "en" => "Democracy", "ar" => "الديمقراطية", "fr" => "Démocratie"},
+    {"tid" => 396, "en" => "Development Theory", "ar" => "نظرية التنمية", "fr" => "Théorie de développement"},
+    {"tid" => 79, "en" => "Election Management", "ar" => "إدارة الانتخابات", "fr" => "Gestion électorale "},
+    {"tid" => 387, "en" => "English as a Second Language (ESL)", "ar" => "الإنجليزية كلغة ثانية", "fr" => "Anglais en seconde langue (ESL) "},
+    {"tid" => 460, "en" => "Environment", "ar" => "البيئة", "fr" => "Environnement"},
+    {"tid" => 388, "en" => "Equality", "ar" => "المساواة", "fr" => "Egalité"},
+    {"tid" => 406, "en" => "Ethics", "ar" => "أخلاقيات المهنة", "fr" => "Etique"},
+    {"tid" => 411, "en" => "Finance/Banking", "ar" => "الشؤون المالية /المصرفية", "fr" => "Finance/ Secteur bancaire"},
+    {"tid" => 268, "en" => "Funding", "ar" => "التمويل", "fr" => "Financement"},
+    {"tid" => 237, "en" => "Governance", "ar" => "الحوكمة", "fr" => "Gouvernance"},
+    {"tid" => 418, "en" => "Health Awareness", "ar" => "التوعية الصحية", "fr" => "Sensibilisation à la santé"},
+    {"tid" => 457, "en" => "Human Rights", "ar" => "حقوق الانسان", "fr" => "Droits de l*777*homme"},
+    {"tid" => 287, "en" => "Information Technology (IT)", "ar" => "تقنية المعلومات", "fr" => "Informatique"},
+    {"tid" => 359, "en" => "Investment", "ar" => "الاستثمار", "fr" => " Investissement"},
+    {"tid" => 17, "en" => "Journalism", "ar" => "صحافة", "fr" => "Journalisme "},
+    {"tid" => 327, "en" => "Judicial", "ar" => "قضائي", "fr" => " Judiciaire"},
+    {"tid" => 386, "en" => "Laws/Legislation", "ar" => "القوانين/التشريعات", "fr" => "Lois/Législation"},
+    {"tid" => 45, "en" => "Leadership", "ar" => "القيادة", "fr" => "Leadership "},
+    {"tid" => 461, "en" => "MEPI Alumni Association Projects", "ar" => "مشاريع خريجي ميبي", "fr" => ""},
+    {"tid" => 410, "en" => "Marketing/Branding", "ar" => "التسويق/ العلامات التجارية", "fr" => "Marketing/ Création de marque"},
+    {"tid" => 365, "en" => "Media Outreach", "ar" => "التواصل الإعلامي", "fr" => "Sensibilisation des médias"},
+    {"tid" => 385, "en" => "Minority Rights", "ar" => "حقوق الأقليات", "fr" => "Droits des minorités"},
+    {"tid" => 471, "en" => "Mobile Phones", "ar" => "الهواتف النقالة", "fr" => "Téléphones portables (Mobile)"},
+    {"tid" => 375, "en" => "Monitoring and Evaluation", "ar" => "المراقبة والتقييم", "fr" => "Suivi et évaluation"},
+    {"tid" => 466, "en" => "Networking", "ar" => "الشبكات", "fr" => "Networking"},
+    {"tid" => 465, "en" => "Organizational Development", "ar" => "التطوير التنظيمي", "fr" => "Développement organisationnel"},
+    {"tid" => 32, "en" => "Political Particpation", "ar" => "المشاركة السياسية", "fr" => "Participation politique "},
+    {"tid" => 470, "en" => "Privacy", "ar" => "الخصوصية", "fr" => "Intimité"},
+    {"tid" => 116, "en" => "Professional Development", "ar" => "التنمية المهنية", "fr" => "Développement professionnel"},
+    {"tid" => 326, "en" => "Project Management", "ar" => "إدارة المشاريع", "fr" => "Gestion de projet"},
+    {"tid" => 86, "en" => "Risk Management", "ar" => "إدارة المخاطر", "fr" => "Management des risques "},
+    {"tid" => 367, "en" => "School Programs", "ar" => "البرامج المدرسية", "fr" => "Programmes scolaires"},
+    {"tid" => 362, "en" => "Security", "ar" => "الأمن", "fr" => "Sécurité"},
+    {"tid" => 425, "en" => "Small and Medium Enterprises (SMEs)", "ar" => "الشركات الصغيرة والمتوسطة", "fr" => "Petites et moyennes entreprises (PME)"},
+    {"tid" => 395, "en" => "Social Entrepreneurship", "ar" => "الريادة الاجتماعية", "fr" => "Entrepreneuriat Social"},
+    {"tid" => 338, "en" => "Social Media", "ar" => "مواقع التواصل الاجتماعي", "fr" => "Médias sociaux"},
+    {"tid" => 464, "en" => "Strategic Planning", "ar" => "التخطيط الاستراتيجي", "fr" => "Planification stratégique"},
+    {"tid" => 31, "en" => "Strategic Planning Skills", "ar" => "مهارات التخطيط الاستراتيجي", "fr" => "Compétences en planification stratégique"},
+    {"tid" => 333, "en" => "Teaching Methodologies", "ar" => "طرائق التدريس", "fr" => "Méthodologie d’enseignement"},
+    {"tid" => 16, "en" => "Trade", "ar" => "التجارة", "fr" => "Commerce "},
+    {"tid" => 511, "en" => "Volunteerism", "ar" => "العمل التطوعي", "fr" => "Bénévolat"},
+    {"tid" => 330, "en" => "Training of Trainers (TOT)", "ar" => "تدريب المدربين ", "fr" => "Formation de Formateurs (FDF) "},
+    {"tid" => 378, "en" => "Voter Participation", "ar" => "مشاركة الناخبين ", "fr" => "Participation des électeurs"},
+    {"tid" => 381, "en" => "Women*777*s Rights", "ar" => "حقوق المرأة", "fr" => "Droits des femmes"}
 
 ]
 @tags.each do |tg|
-  inum = Tag.create(name: tg['en'] )
+
+  inum = Tag.create(name: tg['en'], tid: tg['tid'] )
   trans = Tag::Translation.create(:tag_id => inum.id, :locale => "ar", :name => tg['ar'])
   trans = Tag::Translation.create(:tag_id => inum.id, :locale => "fr", :name => tg['fr'])
 end
 
 
-materialtypes = Materialtype.create([
 
-                                        { name: 'Decisions - selection'},
-                                        { name: 'Newsletter issue'},
-                                        { name: 'Page'},
-                                        { name: 'Profile'},
-                                        { name: 'Series'},
-                                        { name: 'Story'},
-                                        { name: 'Training Material'}
 
-                                    ])
+
+@mattypes = [
+
+    {"en" => "Instructor Curicullum", "ar" => "قطر", "fr" => "Qatar "},
+    {"en" => "Website", "ar" => "المملكة العربية السعودية", "fr" => "Arabie Saoudite"},
+    {"en" => "Student Manual", "ar" => "سوريا", "fr" => "Syrie"},
+    {"en" => "Mobile App", "ar" => "تونس", "fr" => "Tunisie "},
+    {"en" => "Slide Presentation", "ar" => "الإمارات العربية المتحدة", "fr" => "UAE"},
+    {"en" => "Video", "ar" => "الضفة الغربية/قطاع غزة", "fr" => "Cisjordanie/Bande de Gaza "},
+
+]
+@mattypes.each do |c|
+  inum = Materialtype.create(name: c['en'])
+  trans = Materialtype::Translation.create(:materialtype_id => inum.id, :locale => "ar", :name => c['ar'])
+  trans = Materialtype::Translation.create(:materialtype_id => inum.id, :locale => "fr", :name => c['fr'])
+end
+
+
+
 
 
 trainlanguages = Trainlanguage.create([

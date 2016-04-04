@@ -1,1 +1,15 @@
-dopubdate = Resource.update('published_at = ?', DateTime.new(2016,2,1)).where('published_at is NULL')
+
+
+
+
+allresources = Resource.where('published_at is NULL')
+pubdate = rand(10.years).seconds.ago
+allresources.each do |r|
+  r.published_at = pubdate
+  r.save!
+
+end
+
+
+
+

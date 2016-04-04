@@ -12,22 +12,26 @@ span.mepi_2 {font-size: 14px;}
 
 </style>
 
-<div class="row  <%= I18n.locale.to_s %>">
-  <div class="col-sm-6">
+<div class="row  <%= I18n.locale.to_s %>" style="width: 100%; padding: 10px">
+
+
+  <div class="col-sm-2">
+ &nbsp;
+
+  </div>
+
+
+  <div class="col-sm-8" style="text-align:center;">
+    <span style="font-size: 20px">Middle East Partnership Initiative</span><br>
     <%#= link_to root_path do %><span class="mepi_1">Maktabat MEPI Library</span><%# end %><br><br>
+
     <span style="font-size: 20px"><%=t :tagline %></span>
 
   </div>
 
 
-  <div class="col-sm-6">
-    <div class="col-sm-6">
 
-
-
-</div>
-
-  <div class="col-sm-6 pull-right">
+  <div class="col-sm-2 pull-right">
 
     <span style="color: #ccc">Language:</span>
   <%= link_to_unless_current "English", locale: "en" %> |
@@ -37,11 +41,23 @@ span.mepi_2 {font-size: 14px;}
 
 
 
-  </div>
 
 
 
   </div>
+
+
+
+
+<!--<div class="row" role="listbox">
+  <div class="col-sm-12 item active stonebanner">
+
+<br><br><br>&nbsp;111<br><br><br>&nbsp;111<br><br><br>&nbsp;111
+ </div>
+
+  </div>-->
+
+
 
 <nav class="navbar navbar-default  <%= I18n.locale.to_s %>">
   <div class="container-fluid">
@@ -69,8 +85,8 @@ span.mepi_2 {font-size: 14px;}
 
 
       <li><%= link_to new_submission_path  do %><%=t :submit %><%=t :contact %><% end %></li>
-      <li><%= link_to about_path  do %><%=t :faq %><% end %></li>
-      <li><%= link_to about_path  do %><%=t :terms_use %><% end %></li>
+      <li><%= link_to faqs_path  do %><%=t :faq %><% end %></li>
+      <li><%= link_to terms_path  do %><%=t :terms_use %><% end %></li>
 
 
       </ul>
@@ -88,6 +104,8 @@ span.mepi_2 {font-size: 14px;}
             <li><%= link_to 'All Users', users_path %></li>
             <li><%= link_to 'Resources', resources_path %></li>
             <li><%= link_to 'Add Resource', new_resource_path %></li>
+            <li><%= link_to 'Resource Submissions', submissions_path %></li>
+
             <li><%= link_to 'Series', series_index_path %></li>
 
             <li><%= link_to 'Technical Areas', technicalareas_path %></li>

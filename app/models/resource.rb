@@ -8,6 +8,7 @@ class Resource < ActiveRecord::Base
   belongs_to :organization
   belongs_to :series
   belongs_to :project
+  belongs_to :materialtype
 
   has_many :technicalareas_resources, :dependent => :destroy
   has_many :technicalareas, :through => :technicalareas_resources
@@ -24,8 +25,8 @@ class Resource < ActiveRecord::Base
   #has_many :languages_resources, :dependent => :destroy
   #has_many :languages, :through => :languages_resources
 
-  extend EnumerateIt
-  has_enumeration_for :language
+  #extend EnumerateIt
+  #has_enumeration_for :language
 
   acts_as_commentable
   has_many :comments
@@ -33,27 +34,25 @@ class Resource < ActiveRecord::Base
 
   searchable do
 
-      text :title, :body, :publish_month
-      time :published_at
-      string :publish_month
-      integer :technicalarea_ids, :multiple => true, :references => Technicalarea
-      integer :targetgroup_ids, :multiple => true, :references => Targetgroup
+      text :title, :body
+      integer :technicalarea_ids,  :multiple => true, :references => Technicalarea
+      integer :targetgroup_ids,  :multiple => true, :references => Targetgroup
+      integer :tag_ids, :multiple => true, :references => Tag
       integer :organization_id, :references => Organization
       integer :series_id, :references => Series
-
+      integer :materialtype_id, :references => Materialtype
 
 
       I18n.available_locales.each do |locale|
 # Separate name field for each locale
-        text "title_#{locale}".to_sym do
+      text "title_#{locale}".to_sym do
 # read_Attribute is defined by Globalize.
-          read_attribute(:title, locale: locale)
+         read_attribute(:title, locale: locale)
         end
-        text "body_#{locale}".to_sym do
+       text "body_#{locale}".to_sym do
           read_attribute(:body, locale: locale)
         end
       end
-
 
 
 
@@ -76,9 +75,9 @@ class Resource < ActiveRecord::Base
 
 
 
-  def publish_month
-   published_at
-   #published_at.strftime("%B %Y")
+  def publish_year
+
+   published_at.strftime("%Y")
   end
 
   def is_arabic

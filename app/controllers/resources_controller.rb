@@ -4,24 +4,32 @@ class ResourcesController < ApplicationController
   # GET /resources
   # GET /resources.json
   def index
-    self.fixresources
+    #self.fixresources
     @search = Resource.search do
+
+
+      #fulltext params[:search_term] do
+       # fields "title_#{I18n.locale}".to_sym,
+        #       "body_#{I18n.locale}".to_sym
+      #end
+
       fulltext params[:search_term]
-      if !params[:technicalarea_ids].nil?
-        with(:technicalarea_ids, params[:technicalarea_ids].reject(&:blank?))
-      end
-      if !params[:targetgroup_ids].nil?
-        with(:targetgroup_ids, params[:targetgroup_ids].reject(&:blank?))
-      end
-      if !params[:organization_ids].nil?
-      with(:organization_id, params[:organization_ids].reject(&:blank?)) if params[:organization_ids].present?
-      end
-      if !params[:series_ids].nil?
-          with(:series_id,  params[:series_ids].reject(&:blank?))   if params[:series_ids].present?
-      end
-      with(:publish_month, params[:month]) if params[:month].present?
-      order_by(:published_at, :desc)
-      facet :publish_month, :technicalarea_ids, :targetgroup_ids, :organization_id, :series_id
+
+      with(:technicalarea_ids, params[:technicalarea_ids]) if params[:technicalarea_ids].present?
+      with(:targetgroup_ids, params[:targetgroup_ids]) if params[:targetgroup_ids].present?
+      with(:tag_ids, params[:tag_ids]) if params[:tag_ids].present?
+
+      with(:organization_id, params[:organization_ids]) if params[:organization_ids].present?
+      with(:series_id, params[:series_ids]) if params[:series_ids].present?
+      with(:materialtype_id, params[:materialtype_ids]) if params[:materialtype_ids].present?
+
+      facet :organization_id, :technicalarea_ids, :targetgroup_ids, :tag_ids, :series_id, :materialtype_id
+      with(:technicalarea_ids, params[:technicalarea_id]) if params[:technicalarea_id].present?
+      with(:targetgroup_ids, params[:targetgroup_id]) if params[:targetgroup_id].present?
+      #with(:tag_id, params[:tag_id]) if params[:tag_id].present?
+       with(:organization_id, params[:organization_id]) if params[:organization_id].present?
+      with(:series_id, params[:series_id]) if params[:series_id].present?
+      with(:materialtype_id, params[:materialtype_id]) if params[:materialtype_id].present?
 
     end
 
@@ -30,11 +38,16 @@ class ResourcesController < ApplicationController
 
   end
 
+
+
+
+
+
   def search_resources
 
 
     #@orgselectlist = Technicalarea.joins(technicalareas: :translations).where('locale = ?', I18n.locale)
-
+    #@yearlist = Resource.select('publish_year').order('publish_year').uniq
     render 'resources/search_form'
   end
 
@@ -47,6 +60,8 @@ class ResourcesController < ApplicationController
 
     @fixareas = TechnicalareasResource.where("resource_id is NULL")
     @fixgroups = TargetgroupsResource.where("resource_id is NULL")
+    @fixtags = TagsResource.where("resource_id is NULL")
+
     @fixdocs = SiteDocument.where("documentable_id is NULL")
     @fixproj = Resource.where("project_id is NULL")
 
@@ -99,6 +114,22 @@ class ResourcesController < ApplicationController
       end
       fg.save
     end
+
+    @fixtags.each do |ftag|
+      rnode= Resource.find_by_nid(ftag.nid)
+      tnode= Tag.find_by_tid(ftag.tid)
+      if !rnode.nil?
+        ftag.resource_id = rnode.id
+      end
+      if !tnode.nil?
+        ftag.tag_id = tnode.id
+
+      end
+      ftag.save
+    end
+
+
+
 
     @fixdocs.each do |fd|
       dnode= Resource.find_by_nid(fd.nid)
@@ -183,7 +214,7 @@ class ResourcesController < ApplicationController
 
   # GET /resources/new
   def new
-    @resource = Resource.new
+    #@resource = Resource.new
     @technicalarea_list = set_technicalarea_list
     @targetgroup_list = set_targetgroup_list
     @country_list = set_country_list
@@ -266,6 +297,17 @@ class ResourcesController < ApplicationController
     @site_images.reject! { |p| p.errors.empty? }
 
       redirect_to resource_url(params[:resource_id])
+
+
+  end
+
+
+
+  def updatelangs
+    @site_documents = SiteDocument.update(params[:site_documents].keys, params[:site_documents].values)
+    @site_documents.reject! { |p| p.errors.empty? }
+
+    redirect_to resource_url(params[:resource_id])
 
 
   end
